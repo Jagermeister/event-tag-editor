@@ -1,14 +1,21 @@
-<div class="example-container" [formGroup]="eventGroup">
-    <mat-form-field>
-        <input matInput formControlName="year" placeholder="Year">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput formControlName="title" placeholder="Title">
-    </mat-form-field>
-    <mat-form-field>
-        <textarea matInput formControlName="description" placeholder="Description"></textarea>
-    </mat-form-field>
-    <mat-form-field>
-        <textarea matInput formControlName="tags" placeholder="TAGS"></textarea>
-    </mat-form-field>
+<div style="text-align: center; margin: 0 auto; width: 350px;">
+    <div class="example-container" [formGroup]="eventGroup">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+            <input matInput formControlName="year" placeholder="Year">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="title" placeholder="Title">
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput formControlName="description" placeholder="Description"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput formControlName="tags" placeholder="TAGS"></textarea>
+        </mat-form-field>
+        <div>
+            <a mat-raised-button (click)="onSaveAndGrid()" style="margin: 1em;">Save & Return</a>
+            <a mat-raised-button (click)="onSaveAndForm()">Save & Add Another</a>
+        </div>
+    </div>
 </div>

@@ -1,4 +1,4 @@
-declare interface Event {
+declare interface MyEvent {
     id: number;
     year: number;
     title: string;
