@@ -1,6 +1,15 @@
-<div style="text-align: center; margin: 0 auto; width: 350px;">
+<div style="text-align: center; margin: 0 auto; width: 500px;">
+    <a mat-raised-button (click)="onExport()" style="margin: 1em;">Export</a>
     <table>
+        <tr>
+            <th>ID</th>
+            <th>Year</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Tags</th>
+        </tr>
         <tr *ngFor="let event of events">
+            <td><a routerLink='/event/{{event.id}}'>{{event.id}}</a></td>
             <td>{{event.year}}</td>
             <td>{{event.title}}</td>
             <td>{{event.description}}</td>

@@ -40,6 +40,10 @@ export class EventService {
         this._events.next(Object.assign({}, this._dataStore).events);
     }
 
+    read(eventId: number) {
+        return Object.assign({}, ...this._dataStore.events.filter(e => e.id === eventId));
+    }
+
     update(event: MyEvent) {
         this._dataStore.events = [...this._dataStore.events.filter(e => e.id !== event.id), event];
         this._events.next(Object.assign({}, this._dataStore).events);

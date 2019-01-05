@@ -12,11 +12,7 @@ const eventRoutes: Routes = [
         component: EventGridComponent
     },
     {
-        path: 'grid',
-        component: EventGridComponent
-    },
-    {
-        path: 'form',
+        path: ':id',
         component: EventFormComponent
     },
 ];

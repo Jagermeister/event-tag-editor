@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { EventService } from '../event.service';
+import { load } from '@angular/core/src/render3/instructions';
 
 @Component({
     selector: 'app-event-form',
@@ -11,11 +12,24 @@ import { EventService } from '../event.service';
 export class EventFormComponent implements OnInit {
     eventGroup: FormGroup;
 
-    constructor(private formBuilder: FormBuilder, private router: Router, private eventService: EventService) {
+    constructor(
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute,
+        private router: Router,
+        private eventService: EventService) {
         this.eventGroup = this.createForm();
     }
 
     ngOnInit() {
+        const id = Number(this.route.snapshot.paramMap.get('id'));
+        if (!isNaN(id)) {
+            this.load(id);
+        }
+    }
+
+    load(id: number) {
+        const event = this.eventService.read(id);
+        this.eventGroup.patchValue(event);
     }
 
     createForm(): FormGroup {
@@ -23,14 +37,14 @@ export class EventFormComponent implements OnInit {
             id: [''],
             year: [''],
             title: [''],
-            description: [''],
+            description: [null],
             tags: ['']
         });
     }
 
     onSaveAndGrid() {
         this.onSave();
-        this.router.navigate(['/event/grid']);
+        this.router.navigate(['/event']);
     }
 
     onSaveAndForm() {
@@ -45,9 +59,19 @@ export class EventFormComponent implements OnInit {
             const title: string = this.eventGroup.get('title').value;
             const description: string = this.eventGroup.get('description').value;
             const tagString: string = this.eventGroup.get('tags').value;
-            const tags: string[] = tagString.length ? tagString.split(' ') : [];
+            const tags: string[] = (tagString && tagString.length) ? tagString.split(' ') : [];
 
-            this.eventService.create(year, title, description, tags);
+            if (isNaN(id) || id === 0) {
+                this.eventService.create(year, title, description, tags);
+            } else {
+                this.eventService.update({
+                    id: id,
+                    year: year,
+                    title: title,
+                    description: description,
+                    tags: tags
+                });
+            }
         }
     }
 }

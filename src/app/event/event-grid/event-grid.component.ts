@@ -11,10 +11,13 @@ export class EventGridComponent implements OnInit {
     events: MyEvent[];
 
     constructor(private router: Router, private eventService: EventService) {
-        this.eventService.events.subscribe(events => this.events = events);
+        this.eventService.events.subscribe(events => this.events = events.sort((a, b) => b.year - a.year));
     }
 
     ngOnInit() {
     }
 
+    onExport() {
+        console.log(JSON.stringify(this.events));
+    }
 }
