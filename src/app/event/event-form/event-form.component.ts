@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EventService } from './event.service';
+import { EventService } from '../event.service';
 
 @Component({
     selector: 'app-event-form',
@@ -30,7 +30,7 @@ export class EventFormComponent implements OnInit {
 
     onSaveAndGrid() {
         this.onSave();
-        this.router.navigate(['./grid']);
+        this.router.navigate(['/event/grid']);
     }
 
     onSaveAndForm() {

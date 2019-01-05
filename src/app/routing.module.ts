@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { EventFormComponent } from './event-form/event-form.component';
 
 const routes: Routes = [
     {
@@ -9,8 +8,8 @@ const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: 'form',
-        component: EventFormComponent
+        path: 'event',
+        loadChildren: '../app/event/event.module#EventModule'
     },
     {
         path: 'about',

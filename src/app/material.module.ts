@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
     MatButtonModule,
@@ -29,7 +28,7 @@ const matModules = [
 ];
 
 @NgModule({
-  imports: [BrowserAnimationsModule, HttpClientModule, ...matModules],
-  exports: [BrowserAnimationsModule, HttpClientModule, ...matModules],
+  imports: [HttpClientModule, ...matModules],
+  exports: [HttpClientModule, ...matModules],
 })
 export class MaterialModule {}
