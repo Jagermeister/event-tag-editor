@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {
     MatButtonModule,
     MatCheckboxModule,
+    MatChipsModule,
     MatInputModule,
     MatFormFieldModule,
     MatGridListModule,
@@ -17,6 +18,7 @@ import {
 const matModules = [
   MatButtonModule,
   MatCheckboxModule,
+  MatChipsModule,
   MatDialogModule,
   MatTabsModule,
   MatIconModule,

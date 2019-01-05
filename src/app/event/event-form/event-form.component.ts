@@ -29,7 +29,7 @@ export class EventFormComponent implements OnInit {
 
     load(id: number) {
         const event = this.eventService.read(id);
-        this.eventGroup.patchValue(event);
+        this.eventGroup.patchValue(Object.assign({}, event, {tags: event.tags.join(' ')}));
     }
 
     createForm(): FormGroup {

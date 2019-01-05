@@ -1,0 +1,12 @@
+.mat-chip {
+    padding: 2px 8px;
+    min-height: 18px;
+    border-radius: 8px;
+}
+
+.gender-male {
+    background-color: aqua;
+}
+.gender-female {
+    background-color: plum;
+}
