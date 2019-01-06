@@ -1,2 +1,6 @@
-<app-event-year-report></app-event-year-report>
-<app-event-tag-report></app-event-tag-report>
+<div style="text-align: center;">
+    <mat-checkbox [checked]="isStarredOnly" (change)="isStarredOnly = !isStarredOnly">Show release events only?</mat-checkbox>
+</div>
+<br/>
+<app-event-year-report [isStarredOnly]="isStarredOnly"></app-event-year-report>
+<app-event-tag-report [isStarredOnly]="isStarredOnly"></app-event-tag-report>

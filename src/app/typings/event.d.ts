@@ -3,5 +3,6 @@ declare interface MyEvent {
     year: number;
     title: string;
     description: string;
+    isStarred: boolean;
     tags: string[];
 }

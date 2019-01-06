@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './event-report.component.html'
 })
 export class EventReportComponent implements OnInit {
+    isStarredOnly = true;
 
     constructor() { }
 

@@ -13,6 +13,7 @@
         <mat-form-field>
             <textarea matInput rows="5" formControlName="tags" placeholder="TAGS"></textarea>
         </mat-form-field>
+        <mat-checkbox formControlName="isStarred">Include in release?</mat-checkbox>
         <div>
             <a mat-raised-button (click)="onSaveAndGrid()" style="margin: 1em;">Save & Return</a>
             <a mat-raised-button (click)="onSaveAndForm()">Save & Add Another</a>

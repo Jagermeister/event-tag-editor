@@ -37,6 +37,7 @@ export class EventFormComponent implements OnInit {
             id: [''],
             year: [''],
             title: [''],
+            isStarred: [false],
             description: [null],
             tags: ['']
         });
@@ -58,17 +59,19 @@ export class EventFormComponent implements OnInit {
             const year: number = Number(this.eventGroup.get('year').value);
             const title: string = this.eventGroup.get('title').value;
             const description: string = this.eventGroup.get('description').value;
+            const isStarred: boolean = this.eventGroup.get('isStarred').value;
             const tagString: string = this.eventGroup.get('tags').value;
             const tags: string[] = (tagString && tagString.length) ? tagString.split(' ') : [];
 
             if (isNaN(id) || id === 0) {
-                this.eventService.create(year, title, description, tags);
+                this.eventService.create(year, title, isStarred, description, tags);
             } else {
                 this.eventService.update({
                     id: id,
                     year: year,
                     title: title,
                     description: description,
+                    isStarred: isStarred,
                     tags: tags
                 });
             }

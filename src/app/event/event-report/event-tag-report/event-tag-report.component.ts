@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { EventService } from '../../event.service';
 
 @Component({
@@ -8,11 +7,29 @@ import { EventService } from '../../event.service';
     styleUrls: ['./event-tag-report.component.css']
 })
 export class EventTagReportComponent implements OnInit {
+    private _isStarredOnly = false;
+    private _events: MyEvent[] = [];
     tags = [];
 
-    constructor(private router: Router, private eventService: EventService) {
+    @Input()
+    set isStarredOnly(value) {
+        this._isStarredOnly = value;
+        this.reduceEventsAndTags();
+    }
+
+    constructor(private eventService: EventService) {
         this.eventService.events.subscribe(events => {
-            const tagReduction = events.reduce((p, c) => {
+            this._events = events;
+            this.reduceEventsAndTags();
+        });
+    }
+
+    ngOnInit() {
+    }
+
+    reduceEventsAndTags() {
+        const tagReduction = this._events.reduce((p, c) => {
+            if (!this._isStarredOnly || c.isStarred === this._isStarredOnly) {
                 c.tags.forEach(cTag => {
                     const levels = cTag.split('-');
                     const parent = levels.shift();
@@ -20,29 +37,26 @@ export class EventTagReportComponent implements OnInit {
                     const parentLevel = p[parent] || Object.assign({}, {
                         tag: '',
                         count: 0,
-                        children: { }
-                    }, {tag: parent});
+                        children: {}
+                    }, { tag: parent });
                     parentLevel.count++;
                     if (element !== '') {
                         const elementCount = parentLevel.children[element] || {
                             tag: element,
                             count: 0
                         };
-                        elementCount.count++
+                        elementCount.count++;
                         parentLevel.children[element] = elementCount;
                     }
 
                     p[parent] = parentLevel;
                 });
+            }
 
-                return p;
-            }, {});
+            return p;
+        }, {});
 
-            this.tags = Object.values(tagReduction).sort((a, b) => b['count'] - a['count']);
-            this.tags.forEach(t => t.children = Object.values(t.children).sort((a, b) => b['count'] - a['count']));
-        });
-    }
-
-    ngOnInit() {
+        this.tags = Object.values(tagReduction).sort((a, b) => b['count'] - a['count']);
+        this.tags.forEach(t => t.children = Object.values(t.children).sort((a, b) => b['count'] - a['count']));
     }
 }

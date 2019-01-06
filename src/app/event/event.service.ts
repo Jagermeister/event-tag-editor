@@ -26,12 +26,13 @@ export class EventService {
         return this.http.get<MyEvent[]>(this._dataEndpoint);
     }
 
-    create(year: number, title: string, description: string, tags: string[]) {
+    create(year: number, title: string, isStarred: boolean, description: string, tags: string[]) {
         const id = Math.max(...this._dataStore.events.map(e => e.id), 0) + 1;
         const event = {
             id: id,
             year: year,
             title: title,
+            isStarred: isStarred,
             description: description,
             tags: tags
         };
