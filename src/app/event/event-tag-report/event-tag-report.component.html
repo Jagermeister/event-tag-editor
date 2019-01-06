@@ -1,0 +1,14 @@
+<div style="display: flex; flex-wrap: wrap;">
+    <table *ngFor="let tag of tags" style="border: 1px black solid; margin: 1em;">
+        <tr>
+            <td>{{tag.count}}</td>
+            <td></td>
+            <td style="font-weight: bold;">{{tag.tag}}</td>
+        </tr>
+        <tr *ngFor="let child of tag.children">
+            <td></td>
+            <td>{{child.count}}</td>
+            <td>{{child.tag}}</td>
+        </tr>
+    </table>
+</div>
