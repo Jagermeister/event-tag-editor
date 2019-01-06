@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EventTagReportComponent } from './event-report/event-tag-report/event-tag-report.component';
 import { EventYearReportComponent } from './event-report/event-year-report/event-year-report.component';
 import { EventReportComponent } from './event-report/event-report.component';
+import { EventGameComponent } from './event-game/event-game.component';
 
 const eventRoutes: Routes = [
     {
@@ -19,6 +20,10 @@ const eventRoutes: Routes = [
         component: EventReportComponent
     },
     {
+        path: 'game',
+        component: EventGameComponent
+    },
+    {
         path: ':id',
         component: EventFormComponent
     }
@@ -27,6 +32,7 @@ const eventRoutes: Routes = [
 @NgModule({
     declarations: [
         EventFormComponent,
+        EventGameComponent,
         EventGridComponent,
         EventReportComponent,
         EventTagReportComponent,

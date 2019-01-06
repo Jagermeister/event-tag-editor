@@ -1,17 +1,17 @@
-<div style="text-align: center; margin: 0 auto; width: 350px;">
+<div style="text-align: center; margin: 1em auto; width: 350px;">
     <div class="example-container" [formGroup]="eventGroup">
         <input type="hidden" formControlName="id">
         <mat-form-field>
             <input matInput formControlName="year" placeholder="Year">
         </mat-form-field>
         <mat-form-field>
-            <textarea matInput formControlName="title" placeholder="Title"></textarea>
+            <textarea matInput rows="5" formControlName="title" placeholder="Title"></textarea>
         </mat-form-field>
         <mat-form-field>
-            <textarea matInput formControlName="description" placeholder="Description"></textarea>
+            <textarea matInput rows="5" formControlName="description" placeholder="Description"></textarea>
         </mat-form-field>
         <mat-form-field>
-            <textarea matInput formControlName="tags" placeholder="TAGS"></textarea>
+            <textarea matInput rows="5" formControlName="tags" placeholder="TAGS"></textarea>
         </mat-form-field>
         <div>
             <a mat-raised-button (click)="onSaveAndGrid()" style="margin: 1em;">Save & Return</a>
