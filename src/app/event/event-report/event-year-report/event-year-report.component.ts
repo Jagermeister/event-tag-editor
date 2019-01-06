@@ -10,6 +10,7 @@ export class EventYearReportComponent implements OnInit {
     eventsByDecade = [];
     eventsByCentury = {};
     centurys = [];
+    eventCount = 0;
 
     constructor(private eventService: EventService) {
         this.eventService.events.subscribe(events => {
@@ -34,6 +35,7 @@ export class EventYearReportComponent implements OnInit {
                 return p;
             }, {});
             this.centurys = Object.keys(this.eventsByCentury);
+            this.eventCount = events.length;
         });
     }
 
