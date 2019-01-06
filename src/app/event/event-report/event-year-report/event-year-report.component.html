@@ -1,0 +1,20 @@
+<div style="width: 100%;">
+    <table style="margin: auto;">
+        <tr>
+            <ng-container *ngFor="let century of centurys">
+                <td colSpan="{{eventsByCentury[century].colspan}}" style="font-weight: bold;">{{century}}
+                    ({{eventsByCentury[century].events}})</td>
+            </ng-container>
+        </tr>
+        <tr>
+            <ng-container *ngFor="let decade of eventsByDecade">
+                <td style="font-weight: bold;">{{(decade.decade+'').slice(2)}}</td>
+            </ng-container>
+        </tr>
+        <tr>
+            <ng-container *ngFor="let decade of eventsByDecade">
+                <td>{{decade.events.length}}</td>
+            </ng-container>
+        </tr>
+    </table>
+</div>

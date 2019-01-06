@@ -5,7 +5,9 @@ import { EventGridComponent } from './event-grid/event-grid.component';
 import { EventFormComponent } from './event-form/event-form.component';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EventTagReportComponent } from './event-tag-report/event-tag-report.component';
+import { EventTagReportComponent } from './event-report/event-tag-report/event-tag-report.component';
+import { EventYearReportComponent } from './event-report/event-year-report/event-year-report.component';
+import { EventReportComponent } from './event-report/event-report.component';
 
 const eventRoutes: Routes = [
     {
@@ -14,7 +16,7 @@ const eventRoutes: Routes = [
     },
     {
         path: 'report',
-        component: EventTagReportComponent
+        component: EventReportComponent
     },
     {
         path: ':id',
@@ -26,7 +28,9 @@ const eventRoutes: Routes = [
     declarations: [
         EventFormComponent,
         EventGridComponent,
-        EventTagReportComponent
+        EventReportComponent,
+        EventTagReportComponent,
+        EventYearReportComponent
     ],
     imports: [
         CommonModule,
