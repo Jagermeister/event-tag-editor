@@ -2,15 +2,21 @@
     <a mat-raised-button (click)="onExport()" style="margin: 1em;">Export</a>
     <table>
         <tr>
+            <th></th>
             <th>Year</th>
             <th>Title</th>
             <th>Tags</th>
         </tr>
         <ng-container *ngFor="let event of events">
             <tr>
+                <td><mat-icon *ngIf="event.isStarred">star</mat-icon></td>
                 <td><a routerLink='/event/{{event.id}}'>{{event.year}}</a></td>
                 <td style="font-weight: bold;">{{event.title}}</td>
-                <td><mat-chip-list><mat-chip *ngFor="let tag of event.tags" [ngClass]="tag">{{tag}}</mat-chip></mat-chip-list></td>
+                <td>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let tag of event.tags" [ngClass]="tag">{{tag}}</mat-chip>
+                    </mat-chip-list>
+                </td>
             </tr>
             <tr>
                 <td colspan="3" style="border-bottom: black 1px solid;">{{event.description}}</td>
