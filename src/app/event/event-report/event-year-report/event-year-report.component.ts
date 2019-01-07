@@ -48,7 +48,8 @@ export class EventYearReportComponent implements OnInit {
         this.eventsByCentury = this.eventsByDecade.reduce((p, c) => {
             p[c.century] = {
                 colspan: this.eventsByDecade.filter(e => e.century === c.century).length,
-                events: this._events.filter(e => Math.floor(e.year / 100) * 100 === c.century).length
+                events: this._events.filter(e => (!this._isStarredOnly || e.isStarred === this._isStarredOnly)
+                    && Math.floor(e.year / 100) * 100 === c.century).length
             };
             return p;
         }, {});

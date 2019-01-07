@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EventService } from '../event.service';
-import { load } from '@angular/core/src/render3/instructions';
 
 @Component({
     selector: 'app-event-form',
