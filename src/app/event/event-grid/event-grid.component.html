@@ -1,6 +1,7 @@
-<div style="text-align: center; margin: 0 auto; width: 100%;"><div style="text-align: center;">
+<div style="text-align: center; margin: 0 auto; width: 100%;">
+    <div style="text-align: center;">
         <mat-checkbox [checked]="isStarredOnly" (change)="onStarredChange()">Show release events only?</mat-checkbox>
-        <br/>
+        <br />
         <a mat-raised-button (click)="onExport()" style="margin: 1em;">Export</a>
     </div>
     <table>
@@ -12,7 +13,9 @@
         </tr>
         <ng-container *ngFor="let event of events">
             <tr>
-                <td><mat-icon *ngIf="event.isStarred">star</mat-icon></td>
+                <td>
+                    <mat-icon *ngIf="event.isStarred">star</mat-icon>
+                </td>
                 <td><a routerLink='/event/{{event.id}}'>{{event.year}}</a></td>
                 <td style="font-weight: bold;">{{event.title}}</td>
                 <td>

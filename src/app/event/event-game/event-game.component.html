@@ -1,4 +1,6 @@
-<div style="text-align: center; margin: 0 auto; width: 550px;">
+<div style="text-align: center; margin: 1em auto; width: 550px;">
+    <mat-checkbox [checked]="isStarredOnly" (change)="onStarredChange()">Play release events only?</mat-checkbox>
+    <br />
     <div class="example-container" [formGroup]="gameGroup">
         <mat-form-field>
             <input matInput formControlName="yearMin" placeholder="Year Minimum">
@@ -10,10 +12,13 @@
             <a mat-raised-button (click)="onPlay()" style="margin: 1em;">Play</a>
         </div>
         <mat-form-field>
-            A. <textarea matInput rows="5" formControlName="eventA"></textarea>
+            A. <span>{{eventAYear}}</span><textarea matInput rows="5" formControlName="eventA"></textarea>
         </mat-form-field>
         <mat-form-field>
-            B. <textarea matInput rows="5" formControlName="eventB"></textarea>
+            B. <span>{{eventBYear}}</span><textarea matInput rows="5" formControlName="eventB"></textarea>
         </mat-form-field>
+        <div>
+            <a mat-raised-button (click)="onReveal()" style="margin: 1em;">Reveal</a>
+        </div>
     </div>
 </div>

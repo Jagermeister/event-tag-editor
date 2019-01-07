@@ -11,6 +11,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class EventGameComponent implements OnInit {
     gameGroup: FormGroup;
     events: MyEvent[] = [];
+    isStarredOnly = true;
+
+    eventOne = null;
+    eventTwo = null;
+    eventAYear = null;
+    eventBYear = null;
 
     constructor(private formBuilder: FormBuilder, private eventService: EventService) {
         this.eventService.events.subscribe(events => this.events = events);
@@ -23,25 +29,42 @@ export class EventGameComponent implements OnInit {
     createForm(): FormGroup {
         return this.formBuilder.group({
             yearMin: [0],
-            yearMax: [500],
+            yearMax: [60],
             eventA: [''],
             eventB: ['']
-        })
+        });
+    }
+
+    onStarredChange() {
+        this.isStarredOnly = !this.isStarredOnly;
     }
 
     onPlay() {
+        this.eventAYear = null;
+        this.eventBYear = null;
         const yearMin: number = Number(this.gameGroup.get('yearMin').value);
         const yearMax: number = Number(this.gameGroup.get('yearMax').value);
 
-        const eventOne = this.events[Math.floor(Math.random() * this.events.length)];
-        const eventsChoose = this.events.filter(e => 
-            Math.abs(e.year - eventOne.year) >= yearMin
-            && Math.abs(e.year - eventOne.year) <= yearMax);
-        const eventTwo = eventsChoose[Math.floor(Math.random() * eventsChoose.length)];
+        const options = this.events.filter(e => (!this.isStarredOnly || e.isStarred === this.isStarredOnly));
+
+        const eventOneKey = Math.floor(Math.random() * options.length);
+        this.eventOne = options[eventOneKey];
+        delete options[eventOneKey];
+
+        const eventsChoose = options.filter(e =>
+            Math.abs(e.year - this.eventOne.year) >= yearMin
+            && Math.abs(e.year - this.eventOne.year) <= yearMax
+            && e.year !== this.eventOne.year);
+            this.eventTwo = eventsChoose[Math.floor(Math.random() * eventsChoose.length)];
 
         this.gameGroup.patchValue({
-            eventA: eventOne.year + ': ' + eventOne.title,
-            eventB: eventTwo.year + ': ' + eventTwo.title
-        })
+            eventA: this.eventOne.title,
+            eventB: this.eventTwo.title
+        });
+    }
+
+    onReveal() {
+        this.eventAYear = this.eventOne.year + (this.eventOne.year < this.eventTwo.year ? ' <<<' : '');
+        this.eventBYear = this.eventTwo.year + (this.eventTwo.year < this.eventOne.year ? ' <<<' : '');
     }
 }
