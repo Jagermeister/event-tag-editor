@@ -1,14 +1,15 @@
-# My Angular Template
+# Event Tag Editor
 
 Features
-- Root component template
-    - Header
-    - Router Outlet
-    - Footer
-- Routing (with Modules)
-- Disclosure pop-up
-- Material Modules
-    - Icons (including SVG)
+- Form
+  - Year, Title, Description, Tags, isStarred
+  - Save & Return To Grid, Save & Add Another
+- Grid
+  - Filter by isStarred
+- Report
+  - Events by Decade
+  - Events by Tags
+
 
 ## Development server
 
