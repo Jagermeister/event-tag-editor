@@ -10,6 +10,8 @@ Features
   - Events by Decade
   - Events by Tags
 
+Data exported as json array of events which captures all current application state.
+
 
 ## Development server
 
