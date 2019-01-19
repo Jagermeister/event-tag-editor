@@ -36,4 +36,16 @@ export class EventGridComponent implements OnInit {
     onExport() {
         console.log(JSON.stringify(this.events));
     }
+
+    onProductionExport() {
+        const events = this.events
+            .filter(e => e.isStarred)
+            .map(e => Object.assign({}, {
+                'i': e.id,
+                'y': e.year,
+                't': e.title,
+                'd': e.description
+            }));
+        console.log(JSON.stringify(events));
+    }
 }
