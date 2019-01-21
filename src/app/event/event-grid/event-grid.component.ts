@@ -43,8 +43,7 @@ export class EventGridComponent implements OnInit {
             .map(e => Object.assign({}, {
                 'i': e.id,
                 'y': e.year,
-                't': e.title,
-                'd': e.description
+                't': e.title
             }));
         console.log(JSON.stringify(events));
     }
