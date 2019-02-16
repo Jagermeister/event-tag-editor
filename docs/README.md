@@ -7,6 +7,7 @@ Features
 ![Event Form](/docs/form.png)
 - Grid
   - Filter by isStarred
+  - Provide character counts
 ![Event Form](/docs/grid.png)
 - Report
   - Events by Decade
