@@ -1,6 +1,6 @@
 # Event Tag Editor
 
-Features
+## Features
 - Form
   - Year, Title, Description, Tags, isStarred
   - Save & Return To Grid, Save & Add Another
@@ -16,6 +16,9 @@ Features
 
 Data exported as json array of events which captures all current application state.
 
+
+## Future Features
+- Replace isStarred with category packs "Original", "World Histoy 1990s", "Music Trivia 00s"
 
 ## Development server
 
