@@ -22,4 +22,5 @@ Data exported as json array of events which captures all current application sta
 
 ## Development server
 
+Angular front-end with data being read from `./src/data/events.json` and then help in memory via `src/app/event/event.service`.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
