@@ -19,6 +19,7 @@ Data exported as json array of events which captures all current application sta
 
 ## Future Features
 - Replace isStarred with category packs "Original", "World Histoy 1990s", "Music Trivia 00s"
+- Search by Category Tag. Clickable category names on report produce items.
 
 ## Development server
 
