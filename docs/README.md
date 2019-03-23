@@ -18,12 +18,12 @@ Data exported as json array of events which captures all current application sta
 
 
 ## Future Features
-- Replace isStarred with category packs "Original", "World Histoy 1990s", "Music Trivia 00s"
+- Replace isStarred with category packs "Original", "World History 1990s", "Music Trivia 00s"
 - Search by Category Tag. Clickable category names on report produce items.
 - Language support with foreign pronunciation
 - Image support
 
 ## Development server
 
-Angular front-end with data being read from `./src/data/events.json` and then help in memory via `src/app/event/event.service`.
+Angular front-end with data being read from `./src/data/events.json` and then held in memory via `src/app/event/event.service`.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
