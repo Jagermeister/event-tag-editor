@@ -4,15 +4,23 @@
 - Form
   - Year, Title, Description, Tags, isStarred
   - Save & Return To Grid, Save & Add Another
-![Event Form](/docs/form.png)
 - Grid
   - Filter by isStarred
   - Provide character counts
-![Event Form](/docs/grid.png)
 - Report
   - Events by Decade
   - Events by Tags
-![Event Form](/docs/report.png)
+
+
+<table>
+    <tr>
+        <td><img src="./form.png"/></td>
+        <td><img src="./grid.png"/></td>
+    </tr>
+    <tr>
+        <td colspan="2"><img src="./report.png"/></td>
+    </tr>
+</table>
 
 Data exported as json array of events which captures all current application state.
 
