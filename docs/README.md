@@ -10,7 +10,7 @@
 - Report
   - Events by Decade
   - Events by Tags
-
+- Data export as json array of events
 
 <table>
     <tr>
@@ -21,8 +21,6 @@
         <td colspan="2"><img src="./report.png"/></td>
     </tr>
 </table>
-
-Data exported as json array of events which captures all current application state.
 
 
 ## Future Features
